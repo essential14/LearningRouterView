@@ -22,6 +22,20 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "products" */ "../views/ProductsView.vue"),
   },
+  {
+    path: "/products/:id",
+    name: "productsDetail",
+    component: () =>
+      import(
+        /* webpackChunkName: "products" */ "../views/ProductsDetailView.vue"
+      ),
+  },
+  {
+    path: "/:pathMatch(.*)*", //정규식(위에 정해진 경로가 아닌 다른 경로)
+    name: "notfound",
+    component: () =>
+      import(/* webpackChunkName: "products" */ "../views/NotFoundView.vue"),
+  },
 ];
 
 const router = createRouter({
